@@ -56,15 +56,19 @@
 
 <ng-template #showItems>
   
-<div *ngIf = "Items.length>0">
+<div  >
   <div class="container">
     <ul class ="wish-list">
-      <li *ngFor="let item of Items">
+      <li *ngFor="let item of Items; index as ii">
         <div class ="form-check">
-            <label class="form-check-label" *ngIf="item.isComplete"> 
-                        <input class="checkbox" type ="checkbox"  checked="{{item.isComplete}}" /> {{item.wishText}} 
-            </label>
-             
+            <label class="form-check-label" > 
+                        <input 
+                            class="checkbox" 
+                            type ="checkbox"  
+                            [checked] ="item.isComplete"  
+                            [attr.data-index] ="ii"  
+                        /> {{item.wishText}} 
+            </label> 
         </div>
       </li> 
     </ul>
