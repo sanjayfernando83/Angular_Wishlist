@@ -14,10 +14,10 @@ export class AppComponent {
   title = 'wishlist';
 
   Items : WishItem[] = [
-/*
+ 
     new WishItem('To learn angular'),
     new WishItem("Get Coffee",true),
     new WishItem("Get Skyline")
-*/
+ 
   ]
 }

@@ -62,11 +62,9 @@
       <li *ngFor="let item of Items">
         <div class ="form-check">
             <label class="form-check-label" *ngIf="item.isComplete"> 
-                        <input class="checkbox" type ="checkbox"  checked /> {{item.wishText}} 
+                        <input class="checkbox" type ="checkbox"  checked="{{item.isComplete}}" /> {{item.wishText}} 
             </label>
-            <label class="form-check-label" *ngIf="!item.isComplete"> 
-              <input class="checkbox" type ="checkbox"   /> {{item.wishText}} 
-            </label>
+             
         </div>
       </li> 
     </ul>
