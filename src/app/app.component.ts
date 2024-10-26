@@ -13,11 +13,11 @@ import { NgFor, NgIf } from '@angular/common';
 export class AppComponent {
   title = 'wishlist';
 
-  Items = [
-
+  Items : WishItem[] = [
+/*
     new WishItem('To learn angular'),
     new WishItem("Get Coffee",true),
     new WishItem("Get Skyline")
-
+*/
   ]
 }

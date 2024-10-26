@@ -1,8 +1,13 @@
+
+
+
 <h2>Wish text first item</h2>
 
-<div class="container">
+<div class="container"  *ngIf = "Items.length>0" >
     <div>{{ Items[0].wishText }}</div>
 </div>
+
+
 
 <br>
 <br>
@@ -17,15 +22,54 @@
 <br><br>
 
 <h2>Wish items list ...</h2>
-<div class="container">
-  <ul class ="wish-list">
-    <li *ngFor="let item of Items">
-      <div class ="form-check">
-          <label class="form-check-label"> 
-                      <p> <input class="checkbox" type ="checkbox"  /> {{item.wishText}} </p>
-          </label>
-      </div>
-    </li> 
-  </ul>
-</div>
+  
+  <div *ngIf = "Items.length==0">
+      No items found
+  </div>
  
+
+<div *ngIf = "Items.length>0">
+  <div class="container">
+    <ul class ="wish-list">
+      <li *ngFor="let item of Items">
+        <div class ="form-check">
+            <label class="form-check-label" *ngIf="item.isComplete"> 
+                        <input class="checkbox" type ="checkbox"  checked /> {{item.wishText}} 
+            </label>
+            <label class="form-check-label" *ngIf="!item.isComplete"> 
+              <input class="checkbox" type ="checkbox"   /> {{item.wishText}} 
+            </label>
+        </div>
+      </li> 
+    </ul>
+  </div>
+</div>
+
+
+<h2>Wish items using template</h2>
+
+<div *ngIf="Items.length==0; then noItems else showItems"></div>
+
+<ng-template #noItems>
+  There are no wishes to display
+</ng-template>
+
+<ng-template #showItems>
+  
+<div *ngIf = "Items.length>0">
+  <div class="container">
+    <ul class ="wish-list">
+      <li *ngFor="let item of Items">
+        <div class ="form-check">
+            <label class="form-check-label" *ngIf="item.isComplete"> 
+                        <input class="checkbox" type ="checkbox"  checked /> {{item.wishText}} 
+            </label>
+            <label class="form-check-label" *ngIf="!item.isComplete"> 
+              <input class="checkbox" type ="checkbox"   /> {{item.wishText}} 
+            </label>
+        </div>
+      </li> 
+    </ul>
+  </div>
+</div>
+</ng-template>
